@@ -1,0 +1,222 @@
+body {
+  background: rgba(0,0,0,0.9); /*마지막 a는 투명도, 1.0이 가장 불투명*/
+  margin: 0;
+  color: #fff;
+  font-family: Dotum,'돋움',Helvetica,"Apple SD Gothic Neo",sans-serif;
+}
+
+.showcase::after {
+  content: ''; /*가상요소 ::after 나 ::before는 반드시 content가 필요 */
+  height: 100vh; /*vh 뷰포트의 높이값의 100분의 1단위  */
+  width: 100%;
+  background-image: url('./pen.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  filter: blur(10px);
+  transition: all 1000ms;
+}
+
+.showcase:hover::after {
+  filter: blur(0px);
+}
+
+.content {
+  position: absolute; /*왜 absolute하면 사진이 위로 올라오면서 content부분을 가리게 되지?*/
+  z-index: 1;
+  top: 10%;
+  left: 50%;
+  margin-top: 105px;
+  margin-left: -145px;
+  width: 300px;
+  height: 350px;
+  text-align: center;
+  transition: all 1000ms;
+}
+
+.content .logo {
+  width: 200px;
+  height: 200px;
+}
+
+.content .title {
+  font-size: 2.2rem; /*html 기본 크기 16px의 2.2배*/
+  margin-top: 1rem;
+}
+
+.content .text {
+  line-height: 1.7;
+  margin-top : 1rem;
+}
+
+.container {
+  max-width: 960px;
+  margin:auto;
+  overflow: hidden;
+  padding: 4rem 1rem;
+}
+
+.grid-3 {
+ /*
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+    */
+  display : flex;
+  justify-content: space-around;
+}
+
+.grid-3 div:nth-child(1), .grid-3 div:nth-child(2) {
+  padding-right: 10px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.center {
+  text-align: center;
+  margin: auto;
+}
+
+.bg-light {
+	background: #f4f4f4;
+	color: #333;
+}
+
+.bg-dark {
+	background: #333;
+	color: #f4f4f4;
+}
+
+#email {
+	display: grid;
+	grid-template-rows: 1fr 2fr 1fr;
+	grid-gap: 0.6rem;
+	justify-content: center;
+	align-content: center;
+	border: 1px solid #fff;
+	width: 500px;
+	height: 200px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#email .email-form-title {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+	font-weight: bold;
+	font-family: Dotum,'돋움',Helvetica,"Apple SD Gothic Neo",sans-serif;
+	width: 400px;
+	border-bottom: 0.5px solid #fff;
+}
+
+#email .email-form {
+	padding-top: 1rem;
+	margin: auto;
+	font-weight: bold;
+	font-family: Dotum,'돋움',Helvetica,"Apple SD Gothic Neo",sans-serif;
+}
+
+#email .sent-btn {
+	width: 90px;
+	height: 40px;
+	margin-bottom: 1.5rem;
+	background-color: yellow;
+	border: none;
+	border-radius: 10px;
+	font-family: Dotum,'돋움',Helvetica,"Apple SD Gothic Neo",sans-serif;
+	font-size: 1rem;
+	font-weight: bolder;
+}
+
+#email input {
+	width: 400px;
+	height: 20px;
+	border-radius: 1px;
+	border: #fff;
+}
+
+footer {
+	padding: 1.2rem;
+}
+
+footer p {
+	margin:0;
+}
+
+/*Small Screens*/
+
+@media(max-width: 560px) {
+	.showcase::after {
+	height: 50vh;
+	}	
+	
+	.content {
+		top: 5%;
+		margin-top: 5px;
+	}
+	
+	.content .logo {
+		height: 140px;
+		width: 140px;
+	}
+	
+	.grid-3 {
+		flex-direction: column;
+	}
+	
+	.Services div {
+		padding: 1.2rem 1rem;
+		border-bottom: 1px dashed #333;
+	}
+	
+	.grid-2 {
+  	grid-template-columns: 1fr;
+		grid-gap: 2.2rem;
+	}
+	
+	#email {
+		width: 300px;
+	}
+	
+	#email .email-form-title, label, #email input {
+		width: 200px;
+	}
+
+	#email .sent-btn {
+		margin-right: auto;
+		margin-left: auto;
+	}
+}
+
+@media(max-width: 414px) {
+	.showcase::after {
+		height: 60vh;
+	}	
+}
+
+@media(max-height: 500px) {
+	
+	.content {
+		top :0;
+		margin-top: 70px;
+	}
+	
+	.content .logo {
+		width: 150px;
+		height: 150px;
+	}
+	
+	.content .text {
+		display: none;
+	}
+	
+	.content .title {
+		margin: 0;
+		font-size : 1.8rem;
+	}
+}
